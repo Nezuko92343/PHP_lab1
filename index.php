@@ -10,8 +10,8 @@ $pages = [
     ['file'=>'page5.php?id=5','title'=>'Felix (Stray Kids)'],
 ];
 
-$img = 'Lisa.jfif';
-$aimg ='instagram.png';
+$img = 'img/Lisa.jfif';
+$aimg ='img/instagram.png';
 
 
 $alink = 'https://www.instagram.com/lalalalisa_m/';
@@ -103,4 +103,5 @@ $block_6_text = [
     </div>
 </div>
 </body>
+
 </html>
