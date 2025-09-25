@@ -1,0 +1,106 @@
+<?php 
+$X = 'Lalisa Manoban';
+$Y = 'Біографія';
+
+$pages = [
+    ['file'=>'index.php?id=1','title'=>'Lalisa Manoban (BlackPink)'],
+    ['file'=>'page2.php?id=2','title'=>'Kai (Exo)'],
+    ['file'=>'page3.php?id=3','title'=>'Jimin (BTS)'],
+    ['file'=>'page4.php?id=4','title'=>'Jisoo (BlackPink)'],
+    ['file'=>'page5.php?id=5','title'=>'Felix (Stray Kids)'],
+];
+
+$img = 'Lisa.jfif';
+$aimg ='instagram.png';
+
+
+$alink = 'https://www.instagram.com/lalalalisa_m/';
+$maplink = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7960469.022998586!2d101.490104!3d13.038996899999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304d8df747424db1%3A0x9ed72c880757e802!2z0KLQsNC40LvQsNC90LQ!5e0!3m2!1sru!2sua!4v1758467173592!5m2!1suk!2sua';
+
+$ol_list = [
+    "Сольні треки в складі гурту:В рамках BTS він виконав кілька сольних пісень: “Lie” (2016), “Serendipity” (2017) та “Filter” (2020). Вони досягали високих позицій у чартах, і “Filter” встановив рекорд за кількістю стрімів серед корейських пісень у перші 24 години після виходу.",
+    "Освіта та танці:
+Чімін навчався у Busan High School of Arts, де спеціалізувався на сучасному танці (modern dance). Його викладачі помітили талант і підштовхнули до участі в прослуховуваннях, що врешті привело до підписання контракту з Big Hit Entertainment."
+];
+
+
+$block_6_text = [
+    "Лаліса Манобан народилася 27 березня 1997 року в місті Бангкок, Таїланд. З дитинства вона захоплювалася музикою та танцями, брала участь у місцевих конкурсах талантів і відвідувала танцювальні студії. У 2010 році Лаліса пройшла прослуховування в YG Entertainment і переїхала до Південної Кореї для навчання та тренувань, щоб стати K-pop артисткою.",
+    "У 2016 році Лаліса дебютувала як учасниця гурту BLACKPINK, який швидко став міжнародним феноменом. Вона відома своїм унікальним стилем танцю та репу, а також харизмою на сцені. У 2021 році Лаліса випустила сольний альбом «LALISA», який отримав світове визнання і встановив кілька рекордів на YouTube та в чартах."
+];
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title></title>
+</head>
+<body>
+
+<header class="header">
+    <h1>
+        <?= htmlspecialchars($X) ?>
+    </h1>
+</header>
+
+<div class="container">
+    <div class="container-wrapper">
+       <h4>Меню</h4>
+    <ul>
+        <?php foreach($pages as $i => $p): ?>
+            <?php $href = $p['file']; $label = $p['title']; ?>
+            <li>
+                <a href="<?= $href ?>" class="<?= ($_GET['id']??1)==($i+1) ? 'active' : '' ?>">
+                    <?= htmlspecialchars($label) ?>
+                </a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+    </div>
+    <div class="container-blocks">
+        <div class="block-3-4-5">
+            <div class="block-3">
+            <img src="<?= htmlspecialchars($img) ?>" alt="Lalisa Manoban" class="photo">
+            </div>
+            <div class="block-4-5">
+            <div class="block-4">
+                <iframe 
+    src="<?= htmlspecialchars($maplink) ?>" 
+    width ="100%"
+    height="100%"
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+
+            </div>
+            <div class="block-5">
+                <h2>Цікаві факти:</h2>
+    <ol>
+        <?php foreach($ol_list as $item): ?>
+            <li><?= htmlspecialchars($item) ?></li>
+        <?php endforeach; ?>
+    </ol>
+    <a href=" <?= htmlspecialchars($alink) ?>"><img class="aimg" src=" <?= htmlspecialchars($aimg) ?>" alt="Instagram"></a>
+            </div>
+            </div>
+        </div>
+        
+        <div class="block-6">
+            <?= htmlspecialchars($Y) ?>
+            <?php foreach($block_6_text as $paragraph): ?>
+        <p><?= $paragraph ?></p>
+    <?php endforeach; ?>
+    
+</div>
+
+        </div> 
+    </div>
+</div>
+</body>
+</html>
